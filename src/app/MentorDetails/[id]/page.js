@@ -1,8 +1,9 @@
 "use client";
 
-import {  useParams } from "next/navigation";
+import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function MentorDetailsPage({ params }) {
   const { id } = useParams();
@@ -12,7 +13,7 @@ export default function MentorDetailsPage({ params }) {
     const fetchMentor = async () => {
       const res = await fetch(`http://localhost:4000/api/mentor/${id}`);
       const data = await res.json();
-      console.log(data.data.name)
+      console.log(data.data.name);
       setMentor(data.data);
     };
     fetchMentor();
@@ -34,19 +35,29 @@ export default function MentorDetailsPage({ params }) {
       <div className="absolute inset-0 -z-10 bg-gradient-to-r from-indigo-200/40 via-pink-100/40 to-transparent blur-3xl"></div>
 
       {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center mb-12"
-      >
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900">
-          {mentor?.name}
-        </h1>
-        <p className="text-gray-600 mt-3 max-w-2xl mx-auto text-lg">
-          Email: {mentor?.email}
-        </p>
-      </motion.div>
+      <div className="md:flex items-center justify-center gap-4 mt-5">
+        <div>
+          <Image
+            src={mentor.image}
+            width={400}
+            height={300}
+            className="w-40 h-40 rounded-t-xl mb-3 mx-auto"
+          ></Image>
+        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900">
+            {mentor?.name}
+          </h1>
+          <p className="text-gray-600 mt-3 max-w-2xl mx-auto text-lg">
+            Email: {mentor?.email}
+          </p>
+        </motion.div>
+      </div>
 
       {/* Mentor Details Card */}
       <motion.div

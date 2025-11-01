@@ -1,12 +1,51 @@
 "use client";
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation"; // ✅ import this
+import { usePathname, useRouter } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import Swal from "sweetalert2";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const pathname = usePathname(); // ✅ get current route
+  const [user, setUser] = useState(null);
+  const pathname = usePathname();
+  const router = useRouter();
+
+  // ✅ Load user info from localStorage safely (only on client)
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedUser = localStorage.getItem("user");
+      if (storedUser) setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  // ✅ Logout handler`
+  const handleLogout = () => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will be logged out!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonText: "Yes, logout!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        localStorage.removeItem("career-boots-token");
+        localStorage.removeItem("user");
+
+        Swal.fire({
+          title: "Logged Out!",
+          text: "You have been successfully logged out.",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+
+        setUser(null);
+        router.push("/login");
+      }
+    });
+  };
 
   const navLinks = [
     { name: "Home", href: "/" },
@@ -45,22 +84,52 @@ export default function Navbar() {
                 </Link>
               );
             })}
+
+            {/* ✅ Role-based Dashboard */}
+            {user && (
+              <Link
+                href={
+                  user.role === "admin"
+                    ? "/adminDashboard"
+                    : "/studentDashboard"
+                }
+                className="text-gray-700 hover:text-blue-600 transition"
+              >
+                {user.role === "admin"
+                  ? "Admin Dashboard"
+                  : "Student Dashboard"}
+              </Link>
+            )}
           </div>
 
-          {/* Buttons */}
-          <div className="hidden md:flex space-x-3">
-            <Link
-              href="/login"
-              className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition"
-            >
-              Login
-            </Link>
-            <Link
-              href="/signup"
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-            >
-              Sign Up
-            </Link>
+          {/* ✅ Buttons */}
+          <div className="hidden md:flex space-x-3 items-center">
+            {!user ? (
+              <>
+                <Link
+                  href="/login"
+                  className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition"
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/register"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+                >
+                  Sign Up
+                </Link>
+              </>
+            ) : (
+              <>
+              <h1 className="border px-2 rounded-sm">{user.name}</h1>
+              <button
+                onClick={handleLogout}
+                className="px-4 py-2 border-blue-600 border-2 rounded-lg hover:bg-red-200 transition"
+              >
+                Logout
+              </button>
+              </>
+            )}
           </div>
 
           {/* Mobile Menu Button */}
@@ -73,7 +142,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* ✅ Mobile Menu */}
       {menuOpen && (
         <div className="md:hidden bg-white shadow-lg">
           <div className="px-4 pt-2 pb-4 space-y-2">
@@ -97,22 +166,52 @@ export default function Navbar() {
               );
             })}
 
-            <div className="flex flex-col gap-2 mt-3">
+            {/* ✅ Mobile Dashboard Link */}
+            {user && (
               <Link
-                href="/login"
-                className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg text-center"
+                href={
+                  user.role === "admin"
+                    ? "/adminDashboard"
+                    : "/studentDashboard"
+                }
                 onClick={() => setMenuOpen(false)}
+                className="block py-2 rounded-md px-2 text-blue-600 font-semibold bg-blue-50"
               >
-                Login
+                {user.role === "admin"
+                  ? "Admin Dashboard"
+                  : "Student Dashboard"}
               </Link>
-              <Link
-                href="/signup"
-                className="px-4 py-2 bg-blue-600 text-white rounded-lg text-center"
-                onClick={() => setMenuOpen(false)}
+            )}
+
+            {/* ✅ Auth Buttons */}
+            {!user ? (
+              <div className="flex flex-col gap-2 mt-3">
+                <Link
+                  href="/login"
+                  className="px-4 py-2 border border-blue-600 text-blue-600 rounded-lg text-center"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Login
+                </Link>
+                <Link
+                  href="/register"
+                  className="px-4 py-2 bg-blue-600 text-white rounded-lg text-center"
+                  onClick={() => setMenuOpen(false)}
+                >
+                  Sign Up
+                </Link>
+              </div>
+            ) : (
+              <button
+                onClick={() => {
+                  handleLogout();
+                  setMenuOpen(false);
+                }}
+                className="w-full bg-red-500 text-white rounded-lg py-2 mt-3"
               >
-                Sign Up
-              </Link>
-            </div>
+                Logout
+              </button>
+            )}
           </div>
         </div>
       )}
