@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
+import ChatBox from "../Components/Chat/ChatBox";
 
 export default function Page() {
   const [allQuestions, setAllQuestions] = useState([]);
@@ -92,7 +93,9 @@ export default function Page() {
             </button>
           ))}
         </div>
+        <ChatBox></ChatBox>
       </div>
+      
     );
   }
 
@@ -208,6 +211,8 @@ export default function Page() {
           No more questions available
         </div>
       )}
+
+      
     </div>
   );
 }

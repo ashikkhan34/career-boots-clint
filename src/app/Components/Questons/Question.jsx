@@ -30,7 +30,7 @@ export default function Question() {
 
 
   return (
-    <div className="container max-w-5xl mx-auto px-4 py-10 ">
+    <div className="container max-w-5xl mx-auto px-4 py-10 mt-10 ">
       <h1 className="text-3xl font-bold text-center mb-8 ">
         Questions & Answers ({questions.length})
       </h1>

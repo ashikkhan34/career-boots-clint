@@ -57,14 +57,14 @@ export default function CareerBootsFeaturesPage() {
           Career Boots helps students and professionals enhance their skills, gain experience, and unlock better career opportunities.
         </p>
 
-        <div className="grid md:grid-cols-3 sm:grid-cols-2 gap-8 mt-10">
+        <div className="grid md:grid-cols-3  sm:grid-cols-2 gap-8 mt-10">
           {features.map((feature, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: index * 0.1 }}
-              className="shadow-2xl hover:shadow-blue-600 rounded-2xl p-6 hover:shadow-xl transition duration-300"
+              className="shadow-xl hover:shadow-blue-600 rounded-2xl p-6 hover:shadow-sm transition duration-300 dark:bg-gray-800"
             >
               <div className="flex justify-center mb-4">{feature.icon}</div>
               <h3 className="text-xl font-semibold mb-2 ">

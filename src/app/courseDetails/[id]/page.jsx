@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import Swal from "sweetalert2";
 
 export default function CourseDetailsPage() {
   const { id } = useParams();
@@ -31,7 +32,11 @@ export default function CourseDetailsPage() {
 
 
   const handleAddToCart = () => {
-    alert('add to cart')
+    Swal.fire({
+  title: "Contact Whats'app (01817553134) ",
+  icon: "success",
+  draggable: true
+});
   };
 
 
@@ -100,7 +105,7 @@ export default function CourseDetailsPage() {
             <p className=" leading-relaxed">{course.courseDetails}</p>
 
             <button
-            className="w-full py-3 dark:bg-gray-800 bg-amber-100 rounded-xl font-semibold  text-lg transition-all border"
+            className="w-full py-3 dark:bg-gray-800 bg-blue-300 hover:bg-blue-500 rounded-xl font-semibold  text-lg transition-all border"
               onClick={handleAddToCart}
              >
                 Add to Cart 🛒
