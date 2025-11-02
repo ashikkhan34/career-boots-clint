@@ -80,7 +80,7 @@ export default function Page() {
   // Subject selection screen
   if (!subject) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center p-6 ">
+      <div className="min-h-screen flex flex-col items-center justify-center p-6 mt-10 ">
         <h1 className="text-3xl mb-6 font-semibold">Select Exam Subject</h1>
         <div className="flex gap-4">
           {["front-end", "backend", "mern-stack"].map((subj) => (

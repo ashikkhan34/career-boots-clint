@@ -68,7 +68,7 @@ export default function ChatBox() {
   return (
     <>
     <h1 className="text-2xl text-center p-4">Learn With Gemini Ai</h1>
-      <div className="flex flex-col dark:shadow-blue-600 items-center justify-center shadow-2xl mt-6 md:w-2xl border p-4 mx-auto">
+      <div className="flex flex-col dark:shadow-blue-600  justify-center shadow-sm mt-6 md:w-2xl min-h-80 rounded-2xl border p-4 mx-auto">
         <div className="w-full  shadow-lg rounded-2xl flex flex-col overflow-hidden">
           <div
             ref={listRef}
@@ -93,7 +93,7 @@ export default function ChatBox() {
               </div>
             ))}
             {loading && (
-              <div className="text-gray-400 text-sm">Bot is typing...</div>
+              <div className="text-gray-400 text-sm">typing...</div>
             )}
           </div>
 
