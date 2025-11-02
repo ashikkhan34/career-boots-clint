@@ -39,10 +39,17 @@ export default function AdminDashboard() {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
-    if (storedUser) setUser(JSON.parse(storedUser));
+    if (storedUser) {
+      try {
+        setUser(JSON.parse(storedUser));
+      } catch (err) {
+        console.error("Failed to parse user from localStorage", err);
+        setUser(null);
+      }
+    }
   }, []);
 
   // 🔹 Fetch all data once
@@ -148,7 +155,7 @@ export default function AdminDashboard() {
     <div className="min-h-screen  p-6 md:p-10">
       <div className="max-w-7xl mx-auto mt-12">
         <h1 className="text-3xl font-bold  mb-2">
-          Welcome <span className="text-blue-600">{user.name}</span> to Admin
+          Welcome <span className="text-blue-600">{user?.name}</span> to Admin
           Dashboard
         </h1>
         <p className="text-gray-600 mb-10">
