@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="relative bg-gradient-to-r from-blue-600 to-indigo-900 text-white overflow-hidden">
+    <section className="dark:bg-gray-900 relative bg-gradient-to-r from-blue-600 to-indigo-900 text-white overflow-hidden">
       {/* Decorative Floating Circles */}
       <div className="absolute top-0 left-0 w-72 h-72 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
       <div className="absolute top-20 right-0 w-56 h-56 bg-purple-400 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob animation-delay-2000"></div>

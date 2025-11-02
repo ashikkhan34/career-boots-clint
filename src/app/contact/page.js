@@ -60,18 +60,18 @@ export default function Page() {
   }
 
   return (
-    <div className="pt-16 min-h-screen bg-gradient-to-br from-white to-slate-50 flex items-center justify-center p-6">
+    <div className="pt-16 min-h-screen flex items-center justify-center p-6">
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 bg-white/80 backdrop-blur-md p-8 rounded-2xl shadow-2xl"
+        className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-2 gap-8 backdrop-blur-md p-8 rounded-2xl shadow-2xl"
       >
         {/* Left - Contact info + animated card */}
         <div className="flex flex-col justify-between">
           <motion.div
             whileHover={{ scale: 1.02 }}
-            className="rounded-xl p-6 border border-gray-100 shadow-lg"
+            className="rounded-xl p-6 dark:shadow-blue-700 shadow-sm"
           >
             <h2 className="text-3xl font-semibold mb-2">
               Contact Career Boots
@@ -83,7 +83,7 @@ export default function Page() {
 
             <div className="space-y-3">
               <div className="flex items-start gap-3">
-                <span className="p-2 bg-slate-100 rounded-lg">
+                <span className="p-2 rounded-lg">
                   <Mail size={18} />
                 </span>
                 <div>
@@ -93,7 +93,7 @@ export default function Page() {
               </div>
 
               <div className="flex items-start gap-3">
-                <span className="p-2 bg-slate-100 rounded-lg">
+                <span className="p-2 rounded-lg">
                   <Phone size={18} />
                 </span>
                 <div>
@@ -103,7 +103,7 @@ export default function Page() {
               </div>
 
               <div className="flex items-start gap-3">
-                <span className="p-2 bg-slate-100 rounded-lg">
+                <span className="p-2 rounded-lg">
                   <MapPin size={18} />
                 </span>
                 <div>
@@ -228,7 +228,7 @@ export default function Page() {
           >
             <div className="p-4 bg-white">
               <div className="text-sm text-slate-500">Our office (map)</div>
-              <div className="mt-2 h-36 rounded-md bg-slate-100 flex items-center justify-center text-slate-400">
+              <div className="mt-2 h-36 rounded-md flex items-center justify-center text-slate-400">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1825.5470440860722!2d90.3945953790138!3d23.779663654366963!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c77094eace8b%3A0x1cd8c2d9239b6cb7!2sMohakhali%2C%20Dhaka%201212!5e0!3m2!1sen!2sbd!4v1761976713152!5m2!1sen!2sbd"
                   width="100%"
@@ -250,7 +250,7 @@ export default function Page() {
 function FloatingInput({ label, name, value, onChange, error }) {
   return (
     <div className="relative">
-      <label className="absolute -top-3 left-3 bg-white px-1 text-xs text-slate-600">
+      <label className="absolute -top-3 left-3 bg-white dark:bg-gray-900 px-1 text-xs text-slate-600">
         {label}
       </label>
       <input

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import Swal from "sweetalert2";
+import ThemeToggle from "@/app/Components/ThemeToggle/ThemeToggle";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -121,15 +122,16 @@ export default function Navbar() {
               </>
             ) : (
               <>
-              <h1 className="border px-2 rounded-sm">{user.name}</h1>
+              <h1 className="border dark:text-gray-500 px-2 rounded-sm">{user.name}</h1>
               <button
                 onClick={handleLogout}
-                className="px-4 py-2 border-blue-600 border-2 rounded-lg hover:bg-red-200 transition"
+                className="px-4 py-2 dark:text-gray-500 border-blue-600 border-2 rounded-lg hover:bg-red-200 transition"
               >
                 Logout
               </button>
               </>
             )}
+            <ThemeToggle></ThemeToggle>
           </div>
 
           {/* Mobile Menu Button */}

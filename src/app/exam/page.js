@@ -79,7 +79,7 @@ export default function Page() {
   // Subject selection screen
   if (!subject) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center p-6 bg-slate-50">
+      <div className="min-h-screen flex flex-col items-center justify-center p-6 ">
         <h1 className="text-3xl mb-6 font-semibold">Select Exam Subject</h1>
         <div className="flex gap-4">
           {["front-end", "backend", "mern-stack"].map((subj) => (
@@ -108,11 +108,11 @@ export default function Page() {
   // Result view
   if (showResult) {
     return (
-      <div className="min-h-screen p-6 bg-slate-50">
+      <div className="min-h-screen p-6 ">
         <h1 className="text-3xl font-semibold mb-4">Exam Result</h1>
         <div className="space-y-4">
           {questions.map((q, idx) => (
-            <div key={idx} className="p-4 border rounded-lg bg-white shadow">
+            <div key={idx} className="p-4 border rounded-lg  shadow">
               <p className="font-medium">
                 {idx + 1}. {q.question}
               </p>
@@ -145,13 +145,13 @@ export default function Page() {
   const isLastQuestion = currentIndex === questions.length - 1;
 
   return (
-    <div className="pt-16 min-h-screen p-6 bg-slate-50 flex flex-col items-center">
+    <div className="pt-16 min-h-screen p-6  flex flex-col items-center">
       {currentQuestion ? (
         <motion.div
           key={currentQuestion._id}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="max-w-2xl w-full p-6 bg-white rounded-xl shadow-md"
+          className="max-w-2xl w-full p-6  rounded-xl shadow-md"
         >
           <div className="flex justify-between items-center mb-4">
             <h2 className="md:text-xl font-semibold">
@@ -167,9 +167,9 @@ export default function Page() {
                 onClick={() => handleAnswerSelect(opt)}
                 className={`w-full text-left px-4 py-2 rounded-lg border ${
                   selectedAnswers[currentQuestion._id] === opt
-                    ? "bg-sky-100 border-sky-500"
+                    ? " border-sky-500"
                     : "border-slate-200"
-                } hover:bg-sky-50`}
+                } hover:bg-sky-100 dark:hover:bg-gray-700`}
               >
                 {opt}
               </button>

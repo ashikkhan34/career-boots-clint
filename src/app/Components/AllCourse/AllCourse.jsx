@@ -17,8 +17,8 @@ export default function AllCourse() {
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto px-6 py-16">
-      <h1 className="text-4xl font-bold mb-12 text-center text-gray-900">
+    <div className="dark:text-gray-100 max-w-7xl mx-auto px-6 py-16">
+      <h1 className="text-4xl font-bold mb-12 text-center ">
         All Courses 📖📚
       </h1>
 
@@ -31,7 +31,7 @@ export default function AllCourse() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, ease: "easeOut" }}
-              className="relative bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer group hover:shadow-2xl transition-all duration-300"
+              className="relative rounded-xl shadow-lg overflow-hidden cursor-pointer group hover:shadow-2xl transition-all duration-300"
             >
               {/* Image with gradient overlay */}
               <div className="relative w-full h-52">
@@ -46,7 +46,7 @@ export default function AllCourse() {
 
               {/* Card Content */}
               <div className="p-5 space-y-2">
-                <h2 className="text-xl font-semibold text-gray-900 group-hover:text-indigo-600 transition-colors">
+                <h2 className="text-xl font-semibold group-hover:text-indigo-600 transition-colors">
                   {course.title}
                 </h2>
                 <div className="flex justify-between items-center text-gray-600">

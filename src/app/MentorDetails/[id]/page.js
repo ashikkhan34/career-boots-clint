@@ -30,9 +30,9 @@ export default function MentorDetailsPage({ params }) {
   }
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-16 relative overflow-hidden bg-gradient-to-br from-indigo-50 to-white">
+    <div className="dark:bg-gray-900 max-w-4xl mx-auto px-6 py-16 relative overflow-hidden">
       {/* Background glow */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-r from-indigo-200/40 via-pink-100/40 to-transparent blur-3xl"></div>
+      <div className=" absolute inset-0 -z-10 to-transparent blur-3xl"></div>
 
       {/* Header */}
       <div className="md:flex items-center justify-center gap-4 mt-5">
@@ -50,7 +50,7 @@ export default function MentorDetailsPage({ params }) {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900">
+          <h1 className="text-4xl sm:text-5xl font-extrabold ">
             {mentor?.name}
           </h1>
           <p className="text-gray-600 mt-3 max-w-2xl mx-auto text-lg">
@@ -64,9 +64,9 @@ export default function MentorDetailsPage({ params }) {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.7 }}
-        className="bg-white/60 backdrop-blur-xl rounded-3xl shadow-xl p-8 border border-gray-100"
+        className=" backdrop-blur-xl rounded-3xl shadow-sm p-8 hover:shadow-pink-600"
       >
-        <div className="grid sm:grid-cols-2 gap-6 text-gray-700">
+        <div className="grid sm:grid-cols-2 gap-6  ">
           {mentor.bio && (
             <p>
               <strong>Bio:</strong> {mentor.bio}
@@ -96,7 +96,7 @@ export default function MentorDetailsPage({ params }) {
             <h3 className="text-2xl font-semibold mb-3 text-indigo-700">
               Availability
             </h3>
-            <ul className="list-disc list-inside text-gray-700 space-y-1">
+            <ul className="list-disc list-inside  space-y-1">
               {mentor.availability.map((slot, idx) => (
                 <li key={idx}>
                   {slot.day}: {slot.startTime} - {slot.endTime}

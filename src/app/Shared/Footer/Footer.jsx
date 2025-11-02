@@ -11,15 +11,15 @@ import { motion } from "framer-motion";
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-10 px-5 md:px-20 mt-10">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+    <footer className="dark:bg-gray-800 bg-gray-500 py-10 px-5 md:px-20 mt-10">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 ">
         {/* Brand Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl font-bold text-white mb-4">CareerBoost</h2>
+          <h2 className="text-2xl font-bold  mb-4">CareerBoost</h2>
           <p className="text-sm leading-6">
             Empowering learners and job seekers to reach their career goals with
             mentorship, skill-building, and practical experience.
@@ -129,7 +129,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Section */}
-      <div className="border-t border-gray-700 mt-10 pt-5 text-center text-sm text-gray-500">
+      <div className="border-t border-gray-700 mt-10 pt-5 text-center text-sm">
         <p>© {new Date().getFullYear()} CareerBoost. All rights reserved.</p>
       </div>
     </footer>

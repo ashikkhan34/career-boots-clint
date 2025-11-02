@@ -1,9 +1,9 @@
 import React from 'react'
 import Hero from './Components/Hero/Hero'
-import Feature from './Components/Feature/Feature'
 import AllCourse from './Components/AllCourse/AllCourse'
 import AllMentor from './Components/AllMentor/AllMentor'
 import Question from './Components/Questons/Question'
+import CareerBootsFeaturesPage from './Components/Features/Feature'
 
 export default function page() {
   return (
@@ -11,8 +11,8 @@ export default function page() {
       <Hero></Hero>
       <AllCourse></AllCourse>
       <AllMentor></AllMentor>
-      <Feature></Feature>
       <Question></Question>
+      <CareerBootsFeaturesPage></CareerBootsFeaturesPage>
     </div>
   )
 }

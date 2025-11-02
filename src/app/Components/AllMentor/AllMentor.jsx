@@ -45,7 +45,7 @@ export default function MentorCarousel() {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-10">
-      <h1 className="text-3xl font-bold mb-8 text-center text-gray-800">
+      <h1 className="text-3xl font-bold mb-8 text-center">
         Our Mentors ({mentors.length})
       </h1>
 
@@ -72,7 +72,7 @@ export default function MentorCarousel() {
                       alt={mentor.name}
                       className="w-full h-52 rounded-xl object-cover mb-4 border"
                     />
-                    <h2 className="text-lg font-semibold text-gray-800">
+                    <h2 className="text-lg font-semibold ">
                       {mentor.name}
                     </h2>
                     <p>📧 {mentor.email}</p>

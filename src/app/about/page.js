@@ -5,7 +5,7 @@ import { Users, Target, Rocket } from "lucide-react";
 
 export default function page() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100 py-16 px-6 md:px-16">
+    <div className="min-h-screen  py-16 px-6 md:px-16">
       {/* Header Section */}
       <motion.div
         initial={{ opacity: 0, y: -40 }}
@@ -13,10 +13,10 @@ export default function page() {
         transition={{ duration: 0.7 }}
         className="text-center mb-16"
       >
-        <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4">
           About <span className="text-indigo-600">Career Boots</span>
         </h1>
-        <p className="text-slate-600 max-w-2xl mx-auto">
+        <p className=" max-w-2xl mx-auto">
           Empowering students and professionals to kickstart their dream careers 
           with modern learning, mentorship, and opportunities.
         </p>
@@ -48,7 +48,7 @@ export default function page() {
           transition={{ duration: 0.7 }}
           viewport={{ once: true }}
         >
-          <h2 className="text-2xl font-semibold text-slate-800 mb-4">
+          <h2 className="text-2xl font-semibold mb-4">
             Who We Are
           </h2>
           <p className="text-slate-600 mb-6 leading-relaxed">
@@ -73,12 +73,12 @@ export default function page() {
         viewport={{ once: true }}
         className="text-center mt-20"
       >
-        <h3 className="text-xl md:text-2xl font-semibold text-slate-800 mb-3">
+        <h3 className="text-xl md:text-2xl font-semibold mb-3">
           Ready to boost your career?
         </h3>
         <a
           href="/contact"
-          className="inline-block bg-indigo-600 text-white px-6 py-3 rounded-full shadow-md hover:bg-indigo-700 transition"
+          className="inline-block bg-indigo-600  px-6 py-3 rounded-full shadow-md hover:bg-indigo-700 transition"
         >
           Contact Us
         </a>
@@ -92,13 +92,13 @@ function Feature({ icon: Icon, title, text }) {
   return (
     <motion.div
       whileHover={{ scale: 1.05 }}
-      className="flex items-start gap-4 bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition"
+      className="flex items-start gap-4 dark:bg-gray-800 p-4 rounded-xl shadow-sm hover:shadow-md transition"
     >
       <div className="p-3 bg-indigo-100 rounded-lg">
         <Icon className="text-indigo-600 w-6 h-6" />
       </div>
       <div>
-        <h4 className="font-semibold text-slate-800">{title}</h4>
+        <h4 className="font-semibold ">{title}</h4>
         <p className="text-slate-600 text-sm">{text}</p>
       </div>
     </motion.div>
