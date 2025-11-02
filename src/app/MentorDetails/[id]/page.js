@@ -11,7 +11,7 @@ export default function MentorDetailsPage({ params }) {
 
   useEffect(() => {
     const fetchMentor = async () => {
-      const res = await fetch(`http://localhost:4000/api/mentor/${id}`);
+      const res = await fetch(`https://career-boots-server.vercel.app/api/mentor/${id}`);
       const data = await res.json();
       console.log(data.data.name);
       setMentor(data.data);

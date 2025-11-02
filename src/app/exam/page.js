@@ -17,7 +17,7 @@ export default function Page() {
   // Fetch all questions once
   useEffect(() => {
     axios
-      .get("http://localhost:4000/api/exam")
+      .get("https://career-boots-server.vercel.app/api/exam")
       .then((res) => setAllQuestions(res.data))
       .catch((err) => console.error(err));
   }, []);

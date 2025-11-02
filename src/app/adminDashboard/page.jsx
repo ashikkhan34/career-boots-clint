@@ -27,7 +27,6 @@ import {
 } from "recharts";
 
 export default function AdminDashboard() {
-  const user = JSON.parse(localStorage.getItem("user"));
   const [data, setData] = useState({
     mentors: [],
     courses: [],
@@ -40,6 +39,11 @@ export default function AdminDashboard() {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+  const [user, setUser] = useState();
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+    if (storedUser) setUser(JSON.parse(storedUser));
+  }, []);
 
   // 🔹 Fetch all data once
   useEffect(() => {
@@ -54,13 +58,15 @@ export default function AdminDashboard() {
           interviewRes,
           examRes,
         ] = await Promise.all([
-          axios.get("http://localhost:4000/api/mentor/"),
-          axios.get("http://localhost:4000/api/course/"),
-          axios.get("http://localhost:4000/api/users/"),
-          axios.get("http://localhost:4000/api/feedback/"),
-          axios.get("http://localhost:4000/api/question/"),
-          axios.get("http://localhost:4000/api/interviewSession/"),
-          axios.get("http://localhost:4000/api/exam/"),
+          axios.get("https://career-boots-server.vercel.app/api/mentor/"),
+          axios.get("https://career-boots-server.vercel.app/api/course/"),
+          axios.get("https://career-boots-server.vercel.app/api/users/"),
+          axios.get("https://career-boots-server.vercel.app/api/feedback/"),
+          axios.get("https://career-boots-server.vercel.app/api/question/"),
+          axios.get(
+            "https://career-boots-server.vercel.app/api/interviewSession/"
+          ),
+          axios.get("https://career-boots-server.vercel.app/api/exam/"),
         ]);
 
         setData({
@@ -142,7 +148,8 @@ export default function AdminDashboard() {
     <div className="min-h-screen  p-6 md:p-10">
       <div className="max-w-7xl mx-auto mt-12">
         <h1 className="text-3xl font-bold  mb-2">
-         Welcome <span className="text-blue-600">{user.name}</span> to Admin Dashboard
+          Welcome <span className="text-blue-600">{user.name}</span> to Admin
+          Dashboard
         </h1>
         <p className="text-gray-600 mb-10">
           Manage and monitor all platform activities at a glance.
@@ -150,9 +157,7 @@ export default function AdminDashboard() {
 
         {/* Loading / Error */}
         {loading && (
-          <div className="text-center py-20 text-lg">
-            Loading dashboard...
-          </div>
+          <div className="text-center py-20 text-lg">Loading dashboard...</div>
         )}
         {error && (
           <div className="text-center text-red-600 bg-red-50 py-3 rounded-lg mb-5">
@@ -170,9 +175,7 @@ export default function AdminDashboard() {
                   className="dark:bg-gray-800 hover:shadow-blue-700 rounded-2xl shadow-sm p-5 hover:shadow-lg transition-all flex justify-between items-center"
                 >
                   <div>
-                    <h3 className=" text-sm font-medium">
-                      {item.title}
-                    </h3>
+                    <h3 className=" text-sm font-medium">{item.title}</h3>
                     <p className="text-2xl font-bold mt-1">{item.count}</p>
                   </div>
                   {item.icon}

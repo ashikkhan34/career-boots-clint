@@ -12,7 +12,7 @@ export default function Question() {
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/question/");
+        const res = await axios.get("https://career-boots-server.vercel.app/api/question/");
         setQuestions(res.data.data || []);
       } catch (err) {
         console.error(err);

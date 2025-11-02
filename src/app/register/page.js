@@ -32,7 +32,7 @@ export default function Page() {
       };
 
       const res = await axios.post(
-        "http://localhost:4000/api/users/create-user",
+        "https://career-boots-server.vercel.app/api/users/create-user",
         userInfo
       );
 

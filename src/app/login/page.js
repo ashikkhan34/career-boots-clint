@@ -22,7 +22,7 @@ export default function Page() {
   const onSubmit = async (data) => {
     try {
       const res = await axios.post(
-        "http://localhost:4000/api/auth/login",
+        "https://career-boots-server.vercel.app/api/auth/login",
         data
       );
 

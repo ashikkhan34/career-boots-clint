@@ -17,7 +17,7 @@ export default function UserDashboard() {
 
   // Load all courses
   useEffect(() => {
-    fetch("http://localhost:4000/api/course/")
+    fetch("https://career-boots-server.vercel.app/api/course/")
       .then((res) => res.json())
       .then((data) => setCourses(data))
       .catch((err) => console.error(err));

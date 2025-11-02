@@ -25,7 +25,7 @@ export default function MentorCarousel() {
   useEffect(() => {
     const fetchMentors = async () => {
       try {
-        const res = await axios.get("http://localhost:4000/api/mentor/");
+        const res = await axios.get("https://career-boots-server.vercel.app/api/mentor/");
         setMentors(res.data.data || []);
       } catch (err) {
         console.error("Error fetching mentors:", err);

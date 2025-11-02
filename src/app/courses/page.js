@@ -10,7 +10,7 @@ export default function Courses() {
 
   useEffect(() => {
     const fetchCourses = async () => {
-      const res = await fetch("http://localhost:4000/api/course/");
+      const res = await fetch("https://career-boots-server.vercel.app/api/course/");
       const data = await res.json();
       setCourses(data);
     };
