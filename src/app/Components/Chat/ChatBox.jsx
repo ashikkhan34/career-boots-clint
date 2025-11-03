@@ -2,8 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 
-const API_BASE =
-  process.env.NEXT_PUBLIC_CHAT_API_URL || "https://career-boots-server.vercel.app/api/chat";
+const API_BASE = process.env.NEXT_PUBLIC_CHAT_API_URL || "https://career-boots-server.vercel.app/api/chat";
 
 export default function ChatBox() {
   const [input, setInput] = useState("");

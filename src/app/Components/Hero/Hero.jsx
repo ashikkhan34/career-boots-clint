@@ -42,7 +42,7 @@ export default function Hero() {
             className="flex gap-4 flex-wrap"
           >
             <Link
-              href="/signup"
+              href="/register"
               className="px-6 py-3 bg-yellow-400 hover:bg-yellow-300 text-gray-900 font-semibold rounded-lg shadow-lg transition"
             >
               Get Started
